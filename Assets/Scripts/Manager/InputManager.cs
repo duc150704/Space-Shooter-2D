@@ -1,0 +1,23 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.EventSystems;
+
+public class InputManager : MonoBehaviour
+{
+    public static InputManager Instance { get; private set; }
+
+    private void Awake()
+    {
+        if (Instance != null)
+        {
+            Destroy(Instance);
+        }
+        Instance = this;
+    }
+
+    public bool IsShootButtonPressed()
+    {
+        return Input.GetKeyDown(KeyCode.Mouse0);
+    }
+}

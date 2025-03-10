@@ -9,12 +9,15 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3433985143032618176}
-  - component: {fileID: 2792033516522504206}
+  - component: {fileID: 6278240595761521622}
+  - component: {fileID: 3876344371386790522}
   - component: {fileID: 5891459017502603175}
   - component: {fileID: 5133432583178926629}
+  - component: {fileID: 7476922330803711528}
+  - component: {fileID: -8974723798346353335}
   m_Layer: 0
   m_Name: Bullet
-  m_TagString: Untagged
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -34,7 +37,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2792033516522504206
+--- !u!114 &6278240595761521622
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -43,7 +46,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 9214331561562263601}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 248b21f4c8e93c749be3e50c09045878, type: 3}
+  m_Script: {fileID: 11500000, guid: 13110a24f63c2b648ad94d1a308daa0f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 1
+--- !u!114 &3876344371386790522
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9214331561562263601}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46dd8f1d0b633b14b8ea74441463a02d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 15
@@ -143,19 +159,70 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0.039105564, y: 0.2511469}
-      - {x: -0.034504056, y: 0.25268066}
-      - {x: -0.12789515, y: 0.15246344}
-      - {x: -0.16506599, y: 0.030862927}
-      - {x: -0.1521309, y: -0.07061422}
-      - {x: -0.15600426, y: -0.2476995}
-      - {x: -0.12825407, y: -0.28585154}
-      - {x: -0.07553045, y: -0.28699833}
-      - {x: 0.13841745, y: -0.2915998}
-      - {x: 0.14359237, y: -0.28489107}
-      - {x: 0.14052467, y: -0.27262044}
-      - {x: 0.13899097, y: -0.2557482}
-      - {x: 0.15704392, y: 0.038277388}
-      - {x: 0.12485407, y: 0.16662419}
-      - {x: 0.06536704, y: 0.19631588}
+    - - {x: 0.023142185, y: 0.17332566}
+      - {x: -0.016545255, y: 0.17086828}
+      - {x: -0.09197761, y: 0.11455059}
+      - {x: -0.10919411, y: 0.022881627}
+      - {x: -0.122199565, y: -0.0446738}
+      - {x: -0.10412322, y: -0.06412101}
+      - {x: -0.104309, y: -0.18608052}
+      - {x: -0.08949847, y: -0.20518595}
+      - {x: -0.059129372, y: -0.20779186}
+      - {x: 0.057789207, y: -0.20507425}
+      - {x: 0.080662, y: -0.19878983}
+      - {x: 0.09509167, y: -0.1619634}
+      - {x: 0.11713548, y: 0.03029561}
+      - {x: 0.08454065, y: 0.11039734}
+      - {x: 0.059005134, y: 0.13469744}
+      - {x: 0.05301886, y: 0.1446743}
+      - {x: 0.04503718, y: 0.14666998}
+      - {x: 0.03942655, y: 0.1484257}
   m_UseDelaunayMesh: 0
+--- !u!50 &7476922330803711528
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9214331561562263601}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!95 &-8974723798346353335
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9214331561562263601}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 64898709574ef994ea4007202368a56e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

@@ -28,6 +28,7 @@ public class PlayerShooting : MonoBehaviour
         if (InputManager.Instance.IsShootButtonPressed())
         {
             Shoot();
+            AudioManager.Instance.PlayGunSound();
             StartCoroutine(KnockBack());
         }
     }

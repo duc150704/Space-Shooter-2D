@@ -14,6 +14,7 @@ public class InputManager : MonoBehaviour
             Destroy(Instance);
         }
         Instance = this;
+        Cursor.visible = false;
     }
 
     public bool IsShootButtonPressed()

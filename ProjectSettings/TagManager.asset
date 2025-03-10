@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Background
+  - Enermy
+  - Bullet
   layers:
   - Default
   - TransparentFX

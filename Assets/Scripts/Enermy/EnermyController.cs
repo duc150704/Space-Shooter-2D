@@ -15,7 +15,7 @@ public class EnermyController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Shoot();
+ 
     }
 
     public void Shoot()

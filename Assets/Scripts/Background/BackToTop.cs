@@ -18,9 +18,9 @@ public class BackToTop : MonoBehaviour
     }
     void Check()
     {
-        if (gameObject.transform.position.y < yPos)
+        if (gameObject.transform.position.y < - yPos)
         {
-            gameObject.transform.position = new Vector2(gameObject.transform.position.x, 20); 
+            gameObject.transform.position = new Vector2(gameObject.transform.position.x, yPos); 
         }
     }
 }

@@ -8,4 +8,9 @@ public class Wave : MonoBehaviour
     public int totalObject;
     public float spawnRate;
     public GameObject enermyPrefabs;
+
+    public Transform[] spawnPos;
+    public Transform[] spawnWay;
+
+
 }

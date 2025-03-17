@@ -62,32 +62,43 @@ public class EnermySpawnManager : MonoBehaviour
         int rows = 2;
         int columns = 9;
         int spaceBetweenEnermy = 2;
-        WaitForSeconds w = new WaitForSeconds(0.5f);
+        WaitForSeconds w = new WaitForSeconds(0.3f);
 
         for (int i = rows / spaceBetweenEnermy ; i <= rows && spawnedEnermy <= wave.totalObject; i++)
         {
             for (int j = - columns / spaceBetweenEnermy; j <= columns / spaceBetweenEnermy && spawnedEnermy <= wave.totalObject; j++)
             {
-                GameObject newEnermy = Instantiate(wave.enermyPrefabs, spawnPos[spawnPosIndex].position, Quaternion.identity);
-                StartCoroutine(MoveEnermy(newEnermy, new Vector2(j * spaceBetweenEnermy, i * spaceBetweenEnermy)));
+                GameObject newEnermy = Instantiate(wave.enermyPrefabs, wave.spawnPos[spawnPosIndex].position, Quaternion.Euler(0, 0, 180));
+                StartCoroutine(MoveEnermy(newEnermy, wave.spawnPos, wave.spawnWay, new Vector2(j * spaceBetweenEnermy, i * spaceBetweenEnermy)));
                 spawnedEnermy++;
-                yield return null;
+                yield return w;
             }
         }
     }
 
-    IEnumerator MoveEnermy(GameObject newEnermy,Vector2 target)
+    IEnumerator MoveEnermy(GameObject newEnermy, Transform[] spawnPositions ,Transform[] targets, Vector2 finalPos)
     {
-        float MovingTime = 1f;
-        float MovingTimeCount = 0f;
-        //float speed = 0.5f;
+        float movingTime = 3f;
+        float movingTimeCounter = movingTime;
 
-        while (MovingTimeCount < MovingTime) 
+        float yValue = newEnermy.transform.position.y;
+        for (int i = 0; i < targets.Length; i++) 
         {
-            if(newEnermy == null) yield break;
-            newEnermy.transform.position = Vector2.Lerp(newEnermy.transform.position, target, MovingTimeCount/MovingTime);
-            MovingTimeCount += Time.deltaTime;
-            yield return null;
+            movingTimeCounter = movingTime;
+            while (movingTimeCounter > 0 && newEnermy !=  null)
+            {
+                movingTimeCounter -= Time.deltaTime;
+                yValue -= Time.deltaTime * 5f;
+                newEnermy.transform.position = new Vector2(Mathf.Sin(yValue),yValue);
+                yield return null;
+            }
+            movingTimeCounter = movingTime;
+            while (movingTimeCounter > 0 && newEnermy != null)
+            {
+                movingTimeCounter -= Time.deltaTime;
+                newEnermy.transform.position = Vector2.Lerp(newEnermy.transform.position, finalPos, 0.02f);
+                yield return null;
+            }
         }
     }
 

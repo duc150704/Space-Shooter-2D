@@ -40,10 +40,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 497782514022920083}
+  - component: {fileID: 6497268189279974787}
   - component: {fileID: 1898794512476851108}
   - component: {fileID: 4962374277196876322}
   - component: {fileID: 6244821745228060880}
-  - component: {fileID: 6497268189279974787}
+  - component: {fileID: 2363003922510105199}
   m_Layer: 0
   m_Name: Enermy
   m_TagString: Enermy
@@ -59,14 +60,31 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7825752849063534866}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 2.48, y: 1.54, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6514454741590892208}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6497268189279974787
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7825752849063534866}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ea54f8f3938fa34e84b0d2e50c3918c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 4
+  animator: {fileID: 0}
+  rb: {fileID: 2363003922510105199}
+  col: {fileID: 6244821745228060880}
+  ExplEffect: {fileID: 3292032959344812442, guid: 010f2ddf018eef541a9aea04ac6305cf, type: 3}
 --- !u!114 &1898794512476851108
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -81,6 +99,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gunPos: {fileID: 6514454741590892208}
   bullet: {fileID: 2372049089264610151, guid: 34b55d9ad8ac4564bab33580680a10f4, type: 3}
+  rb: {fileID: 2363003922510105199}
+  knockBackForce: 10
+  knockBackTime: 1.5
 --- !u!212 &4962374277196876322
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -162,7 +183,7 @@ PolygonCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -177,13 +198,14 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0.3473854, y: 0.46076155}
-      - {x: 0.24746323, y: 0.45741367}
+    - - {x: 0.3473854, y: 0.49233627}
+      - {x: 0.3473854, y: 0.47880435}
+      - {x: 0.23393106, y: 0.4777118}
       - {x: 0.23929214, y: 0.085570216}
-      - {x: -0.009109497, y: 0.27778327}
+      - {x: -0.0045986176, y: 0.34544325}
       - {x: -0.24752879, y: 0.082131386}
-      - {x: -0.24678254, y: 0.4603033}
-      - {x: -0.346359, y: 0.4602201}
+      - {x: -0.24678254, y: 0.4851122}
+      - {x: -0.34861422, y: 0.48953938}
       - {x: -0.4336921, y: 0.30657923}
       - {x: -0.54297376, y: 0.14689088}
       - {x: -0.5386795, y: -0.11137056}
@@ -197,16 +219,30 @@ PolygonCollider2D:
       - {x: 0.53125, y: 0.13739228}
       - {x: 0.43369222, y: 0.33250797}
   m_UseDelaunayMesh: 0
---- !u!114 &6497268189279974787
-MonoBehaviour:
+--- !u!50 &2363003922510105199
+Rigidbody2D:
+  serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7825752849063534866}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4ea54f8f3938fa34e84b0d2e50c3918c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 2
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0

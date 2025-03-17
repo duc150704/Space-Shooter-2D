@@ -4,6 +4,14 @@ using UnityEngine;
 
 public class EnermyHealth : Health
 {
+
+
+    [SerializeField] Animator animator;
+    [SerializeField] Rigidbody2D rb;
+
+     [SerializeField] Collider2D col;
+
+    [SerializeField] GameObject ExplEffect;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,6 +29,8 @@ public class EnermyHealth : Health
         currentHealth -= damage;
         if (currentHealth <= 0)
         {
+            AudioManager.Instance.PlayEnermyExplSound();
+            Instantiate(ExplEffect, gameObject.transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
     }

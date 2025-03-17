@@ -4,10 +4,13 @@ using UnityEngine;
 
 public class PlayerBulletController : BulletController
 {
+     Animator animator;
+    Rigidbody2D rb;
     // Start is called before the first frame update
     void Start()
     {
-        
+        animator = GetComponent<Animator>();
+        rb = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -16,12 +19,18 @@ public class PlayerBulletController : BulletController
         
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        GameObject enm = collision.gameObject;
-        if (enm.tag == "Enermy")
+        if (collision.tag == "Enermy")
         {
-            enm.GetComponent<EnermyHealth>().TakeDamage(damage);
+            Transform en = collision.gameObject.transform;
+
+            collision.gameObject.GetComponent<EnermyHealth>().TakeDamage(damage);
+            animator.SetBool("Boom", true);
+
+            gameObject.GetComponent<PlayerBulletMovements>().direction = Vector2.zero;
+
+            Destroy(gameObject, 0.2f);
         }
     }
 }

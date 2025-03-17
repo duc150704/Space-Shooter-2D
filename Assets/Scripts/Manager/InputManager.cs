@@ -21,4 +21,9 @@ public class InputManager : MonoBehaviour
     {
         return Input.GetKeyDown(KeyCode.Mouse0);
     }
+
+    public bool IsLaunchingRocket()
+    {
+        return Input.GetKeyDown(KeyCode.Mouse1);
+    }
 }

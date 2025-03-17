@@ -8,6 +8,8 @@ public class PlayerShooting : MonoBehaviour
     [SerializeField] Transform centerGun;
     [SerializeField] Transform leftGun;
     [SerializeField] Transform rightGun;
+    [SerializeField] Transform rocketPos;
+    [SerializeField] GameObject rocketPrefab;
 
     [SerializeField] int gunPower;
 
@@ -30,6 +32,11 @@ public class PlayerShooting : MonoBehaviour
             Shoot();
             AudioManager.Instance.PlayGunSound();
             StartCoroutine(KnockBack());
+        }
+        if (InputManager.Instance.IsLaunchingRocket())
+        {
+            GameObject go = Instantiate(rocketPrefab, rocketPos.position, Quaternion.identity);
+            Destroy(go, 3f);
         }
     }
 

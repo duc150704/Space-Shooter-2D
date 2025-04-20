@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerBulletMovements : BulletMovements
 {
     Rigidbody2D rb2d;
+    public Vector2 direction = Vector2.up;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,13 +25,6 @@ public class PlayerBulletMovements : BulletMovements
     
     protected override void Fly()
     {
-        rb2d.velocity = Vector2.up * speed;
-    }
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.tag == "Enermy")
-        {
-            Destroy(gameObject);
-        }
+        rb2d.velocity = direction * speed;
     }
 }

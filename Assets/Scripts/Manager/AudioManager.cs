@@ -9,6 +9,8 @@ public class AudioManager : MonoBehaviour
     [SerializeField] AudioSource SFX;
 
     [SerializeField] AudioClip gunSound;
+    [SerializeField] AudioClip EnermyExpl;
+    [SerializeField] AudioClip playerExpl;
 
     private void Awake()
     {
@@ -35,5 +37,17 @@ public class AudioManager : MonoBehaviour
     {
         SFX.clip = gunSound;
         SFX.PlayOneShot(gunSound);
+    }
+
+    public void PlayEnermyExplSound()
+    {
+        SFX.clip = EnermyExpl;
+        SFX.PlayOneShot(EnermyExpl);
+    }
+
+    public void PlayPlayerExplSounds()
+    {
+        SFX.clip = playerExpl;
+        SFX.PlayOneShot(playerExpl);
     }
 }

@@ -8,12 +8,17 @@ public class PlayerShooting : MonoBehaviour
     [SerializeField] Transform centerGun;
     [SerializeField] Transform leftGun;
     [SerializeField] Transform rightGun;
+    [SerializeField] Transform rocketPos;
+    [SerializeField] GameObject rocketPrefab;
 
     [SerializeField] int gunPower;
 
     [SerializeField] float knockBackForce;
 
     Rigidbody2D rb2d;
+
+    [SerializeField] float freezeTime = 0.2f;
+    float freezeTimeCounter = 0f;
 
     // Start is called before the first frame update
     void Start()
@@ -25,11 +30,18 @@ public class PlayerShooting : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (InputManager.Instance.IsShootButtonPressed())
+        freezeTimeCounter += Time.deltaTime;
+        if (InputManager.Instance.IsShootButtonPressed() && freezeTimeCounter >= freezeTime)
         {
             Shoot();
+            freezeTimeCounter = 0f;
             AudioManager.Instance.PlayGunSound();
             StartCoroutine(KnockBack());
+        }
+        if (InputManager.Instance.IsLaunchingRocket())
+        {
+            GameObject go = Instantiate(rocketPrefab, rocketPos.position, Quaternion.identity);
+            Destroy(go, 3f);
         }
     }
 

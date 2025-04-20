@@ -14,7 +14,16 @@ public class EnermyController : MonoBehaviour
     [SerializeField] float knockBackForce;
     [SerializeField] float knockBackTime;
 
+    bool canFire = false;
+    [SerializeField]float delayShootingTime = 2f;
+    float delayShootingTimeCounter = 0f;
+    float freezeTime = 4f;
+    float freezeTimeCounter = 0f;
 
+    public bool CanFire
+    {
+        get => canFire; set => canFire = value;
+    }
     private void Awake()
     {
         Instance = this;
@@ -23,13 +32,42 @@ public class EnermyController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+       // StartCoroutine(Shooting());
     }
 
     // Update is called once per frame
     void Update()
     {
+        delayShootingTimeCounter += Time.deltaTime;
+        if(delayShootingTimeCounter > delayShootingTime && canFire)
+        {
+            Shoot();
+            delayShootingTimeCounter = 0f;
+        }
 
+        if (canFire) 
+        {
+            freezeTimeCounter += Time.deltaTime;
+            if (freezeTimeCounter >= freezeTime) 
+            { 
+                CanFire = false;
+            }
+        }
+    }
+
+    private void FixedUpdate()
+    {
+
+    }
+
+    IEnumerator Shooting()
+    {
+        yield return new WaitForSeconds(2f);
+
+        //while (gameObject)
+        //{
+
+        //}
     }
 
     public void Shoot()
@@ -40,7 +78,7 @@ public class EnermyController : MonoBehaviour
     private void CreateBullet(Vector2 pos)
     {
         GameObject go = Instantiate(bullet, pos, Quaternion.identity);
-        Destroy(go, 2f);
+        Destroy(go, 5f);
     }
 
 

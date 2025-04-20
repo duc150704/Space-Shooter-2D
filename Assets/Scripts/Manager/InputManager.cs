@@ -19,7 +19,7 @@ public class InputManager : MonoBehaviour
 
     public bool IsShootButtonPressed()
     {
-        return Input.GetKeyDown(KeyCode.Mouse0);
+        return Input.GetKey(KeyCode.Mouse0);
     }
 
     public bool IsLaunchingRocket()

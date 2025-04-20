@@ -19,6 +19,6 @@ public class ScrollingBackground : MonoBehaviour
 
     void Scroll()
     {
-        gameObject.transform.Translate(speed * Vector2.down * Time.deltaTime);
+        gameObject.transform.Translate(speed * Vector3.down * Time.deltaTime);
     }
 }

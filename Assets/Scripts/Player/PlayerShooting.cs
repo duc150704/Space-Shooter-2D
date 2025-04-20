@@ -17,6 +17,9 @@ public class PlayerShooting : MonoBehaviour
 
     Rigidbody2D rb2d;
 
+    [SerializeField] float freezeTime = 0.2f;
+    float freezeTimeCounter = 0f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -27,9 +30,11 @@ public class PlayerShooting : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (InputManager.Instance.IsShootButtonPressed())
+        freezeTimeCounter += Time.deltaTime;
+        if (InputManager.Instance.IsShootButtonPressed() && freezeTimeCounter >= freezeTime)
         {
             Shoot();
+            freezeTimeCounter = 0f;
             AudioManager.Instance.PlayGunSound();
             StartCoroutine(KnockBack());
         }

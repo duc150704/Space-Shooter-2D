@@ -102,6 +102,7 @@ MonoBehaviour:
   rb: {fileID: 2363003922510105199}
   knockBackForce: 10
   knockBackTime: 1.5
+  fireRate: 50.5
 --- !u!212 &4962374277196876322
 SpriteRenderer:
   m_ObjectHideFlags: 0

@@ -9,17 +9,17 @@ public class RocketController : MonoBehaviour
     [SerializeField] float speed;
     Vector2 direction = Vector2.up;
     [SerializeField] Animator animator;
-    public float max;
+
+    [SerializeField] GameObject ExplEffect;
+
+    [SerializeField] int damage;
 
     IEnumerator Lauch()
     {
-        rb.AddForce((- direction + new Vector2(Random.Range(-0.5f, 0.1f), 0)).normalized * speed * 100, ForceMode2D.Force);
-        yield return new WaitForSeconds(0.3f);
+        rb.AddForce(- direction * speed, ForceMode2D.Impulse);
+        yield return new WaitForSeconds(0.2f);
         animator.enabled = true;
-        rb.velocity = Vector2.zero;
-        //yield return new WaitForSeconds(0.1f);
-        rb.AddForce(direction * speed, ForceMode2D.Impulse);
-
+        rb.velocity = direction * speed;
     }
 
     // Start is called before the first frame update
@@ -27,11 +27,24 @@ public class RocketController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         StartCoroutine(Lauch());
+        Invoke("Destroy", 1.4f);
+        Destroy(gameObject, 1.5f);
+
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+
+    private void Destroy()
+    {
+        GameObject[] list = GameObject.FindGameObjectsWithTag("Enermy");
+        foreach (GameObject item in list)
+        {
+            item.GetComponent<EnermyHealth>().TakeDamage(damage);
+        }
+        Instantiate(ExplEffect, gameObject.transform.position, Quaternion.identity);
     }
 }

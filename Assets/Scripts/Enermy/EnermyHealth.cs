@@ -4,18 +4,14 @@ using UnityEngine;
 
 public class EnermyHealth : Health
 {
-
-
-    [SerializeField] Animator animator;
-    [SerializeField] Rigidbody2D rb;
-
-     [SerializeField] Collider2D col;
+    Rigidbody2D rb;
 
     [SerializeField] GameObject ExplEffect;
     // Start is called before the first frame update
     void Start()
     {
         currentHealth = maxHealth;
+        rb = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame

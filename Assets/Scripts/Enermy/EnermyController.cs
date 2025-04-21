@@ -9,7 +9,7 @@ public class EnermyController : MonoBehaviour
 
     [SerializeField] Transform gunPos;
     [SerializeField] GameObject bullet;
-    [SerializeField] Rigidbody2D rb;
+    Rigidbody2D rb;
 
     [SerializeField] float knockBackForce;
     [SerializeField] float knockBackTime;
@@ -33,6 +33,7 @@ public class EnermyController : MonoBehaviour
     void Start()
     {
        // StartCoroutine(Shooting());
+       rb = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame

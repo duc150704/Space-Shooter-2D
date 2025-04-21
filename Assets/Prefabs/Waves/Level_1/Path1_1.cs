@@ -12,7 +12,6 @@ public class Path1_1 : Path
 
     float timeToSwapEnermyList = 2f;
     float timeToSwapEnermyListCounter = 0f;
-    [SerializeField] TextMeshProUGUI wavesNameTextMPGUI;
 
 
     private void Start()
@@ -53,7 +52,6 @@ public class Path1_1 : Path
                 enermyList[i] = enermyList[nextEnIndex];
                 enermyList[nextEnIndex] = go;
             }
-
         }
     }
     IEnumerator Excute()

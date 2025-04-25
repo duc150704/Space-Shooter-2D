@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
-    bool isTouchingTop = false;
     Transform target;
 
     [SerializeField] float speed;

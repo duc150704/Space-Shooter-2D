@@ -38,7 +38,7 @@ public class PlayerMovements : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.tag == "Enermy")
+        if(collision.gameObject.tag == "Enermy" || collision.gameObject.tag == "EnermyBullet")
         {
             Destroy(collision.gameObject);
             GameObject go = Instantiate(PlayerExpl, transform.position, Quaternion.identity);

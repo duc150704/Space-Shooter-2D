@@ -192,6 +192,7 @@ MonoBehaviour:
   knockBackForce: 0
   knockBackTime: 0
   delayShootingTime: 2
+  bulletSpeed: 3
 --- !u!114 &8661953918373101833
 MonoBehaviour:
   m_ObjectHideFlags: 0

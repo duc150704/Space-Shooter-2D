@@ -79,7 +79,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4552548370425545015
 Transform:
   m_ObjectHideFlags: 0
@@ -131,6 +131,7 @@ MonoBehaviour:
   wave: {fileID: 1385348828050843590}
   spawnRate: 0
   spawnerPos: {fileID: 7080747510233509493}
+  fireRate: 0.1
 --- !u!1 &8826936867600604046
 GameObject:
   m_ObjectHideFlags: 0

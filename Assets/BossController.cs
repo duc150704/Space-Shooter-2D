@@ -35,7 +35,7 @@ public class BossController : MonoBehaviour
         }
     }
 
-    IEnumerator Shoot0()
+    public IEnumerator Shoot0()
     {
         float speed = 10f;
         for(int i = 0; i < 10; i++)

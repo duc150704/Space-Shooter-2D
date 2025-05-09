@@ -20,6 +20,8 @@ public class EnermyController : MonoBehaviour
     float freezeTime = 4f;
     float freezeTimeCounter = 0f;
 
+    [SerializeField] float bulletSpeed;
+
     public bool CanFire
     {
         get => canFire; set => canFire = value;
@@ -56,21 +58,6 @@ public class EnermyController : MonoBehaviour
         }
     }
 
-    private void FixedUpdate()
-    {
-
-    }
-
-    IEnumerator Shooting()
-    {
-        yield return new WaitForSeconds(2f);
-
-        //while (gameObject)
-        //{
-
-        //}
-    }
-
     public void Shoot()
     {
         CreateBullet(gunPos.position);
@@ -79,6 +66,11 @@ public class EnermyController : MonoBehaviour
     private void CreateBullet(Vector2 pos)
     {
         GameObject go = Instantiate(bullet, pos, Quaternion.identity);
+        Rigidbody2D rb = go.GetComponent<Rigidbody2D>();
+        if (rb)
+        {
+            rb.velocity = Vector3.down * bulletSpeed;
+        }
         Destroy(go, 5f);
     }
 

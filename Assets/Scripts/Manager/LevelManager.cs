@@ -18,6 +18,8 @@ public class LevelManager : MonoBehaviour
     {
         for (int i = 0; i < waves.Count && waves[i]; i++)
         {
+            if (!waves[i].gameObject.activeSelf)
+                waves[i].gameObject.SetActive(true);
             waves[i].State = WaveSate.SHOWINGNAME;
             StartCoroutine(ShowingWavesName(waves[i]));
             yield return new WaitUntil(() => waves[i].State == WaveSate.WAITING);
@@ -54,5 +56,6 @@ public class LevelManager : MonoBehaviour
     void WaveCompleted(Wave wave) 
     {
         wave.State = WaveSate.DONE;
+        wave.gameObject.SetActive(false);
     }
 }

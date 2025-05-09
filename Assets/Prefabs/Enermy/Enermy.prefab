@@ -81,9 +81,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 4
-  animator: {fileID: 0}
-  rb: {fileID: 2363003922510105199}
-  col: {fileID: 6244821745228060880}
   ExplEffect: {fileID: 3292032959344812442, guid: 010f2ddf018eef541a9aea04ac6305cf, type: 3}
 --- !u!114 &1898794512476851108
 MonoBehaviour:
@@ -99,10 +96,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gunPos: {fileID: 6514454741590892208}
   bullet: {fileID: 2372049089264610151, guid: 34b55d9ad8ac4564bab33580680a10f4, type: 3}
-  rb: {fileID: 2363003922510105199}
   knockBackForce: 10
   knockBackTime: 1.5
-  fireRate: 50.5
+  delayShootingTime: 2
+  bulletSpeed: 3
 --- !u!212 &4962374277196876322
 SpriteRenderer:
   m_ObjectHideFlags: 0

@@ -128,17 +128,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1879216809290653634, guid: b5eda75345cb1cf4e98a02fc3937dbd8, type: 3}
   m_PrefabInstance: {fileID: 678167561}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &50422099 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6695088914347205606, guid: b5eda75345cb1cf4e98a02fc3937dbd8, type: 3}
-  m_PrefabInstance: {fileID: 678167561}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 85015f189bf874d4cb22e1eeb51f8f60, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &265897321
 GameObject:
   m_ObjectHideFlags: 0
@@ -886,17 +875,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b5eda75345cb1cf4e98a02fc3937dbd8, type: 3}
---- !u!114 &694542642 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1385348828050843590, guid: 3da0dd90cb48f8149b249a10ae64dff9, type: 3}
-  m_PrefabInstance: {fileID: 7954668200926645257}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 85015f189bf874d4cb22e1eeb51f8f60, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &694542643 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4552548370425545015, guid: 3da0dd90cb48f8149b249a10ae64dff9, type: 3}
@@ -950,8 +928,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waves:
-  - {fileID: 50422099}
-  - {fileID: 694542642}
   - {fileID: 1755252848}
   timeBetweenWaves: 4
   wavesNameTextMPGUI: {fileID: 282013035}

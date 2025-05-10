@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -40,6 +41,8 @@ public class BossController : MonoBehaviour
         float speed = 10f;
         for(int i = 0; i < 10; i++)
         {
+            if (!player)
+                break;
             CreateProjectile(listProjectiles[0], leftGun.position, player.transform.position - leftGun.position, speed);
             CreateProjectile(listProjectiles[0], rightGun.position, player.transform.position - rightGun.position, speed);
             yield return new WaitForSeconds(1.5f);
@@ -67,6 +70,38 @@ public class BossController : MonoBehaviour
             middleGun.rotation = Quaternion.Euler(0f , 0f, 0f);
     }
 
+    public IEnumerator Shoot2()
+    {
+        List<GameObject> list = new List<GameObject>();
+        int angle = 45;
+        float speed = 5f;
+        for(int i = 0; i < 4; i++)
+        {
+            angle -= 90;
+            GameObject go = Instantiate(listProjectiles[2], middleGun.position, Quaternion.Euler(0, 0, angle));
+            list.Add(go);
+            yield return new WaitForSeconds(1f);
+        }
+        for(int i = 0; i < list.Count; i++)
+        {
+
+        }
+    }
+
+    IEnumerator MoveShoot2Rocket(GameObject go, Vector3 direction, float speed)
+    {
+        float time = 3f;
+        float timeCounter = 0f;
+        while(timeCounter <= time && go)
+        {
+            go.transform.position = Vector3.MoveTowards(middleGun.position, go.transform.up * 3f, speed * Time.deltaTime);
+            timeCounter += Time.deltaTime;
+            yield return null;
+        }
+
+
+    }
+
     IEnumerator RotateMiddleGun()
     {
         float rotatingSpeed = 30f;
@@ -75,6 +110,32 @@ public class BossController : MonoBehaviour
             middleGun.gameObject.transform.Rotate(0f, 0f, rotatingSpeed * Time.deltaTime);
             yield return null;
         }
+    }
+
+    IEnumerator RotateGameObject(GameObject go ,float angle, float timeToRotate)
+    {
+        float timeToRotateCounter = 0;
+        while (gameObject) {
+            go.transform.rotation = Quaternion.Lerp(go.transform.rotation,Quaternion.Euler(0f, 0f, angle),timeToRotateCounter/ timeToRotate );
+            timeToRotateCounter += Time.deltaTime;
+            yield return null;
+        }
+
+    }
+
+    IEnumerator RotateGameObject(GameObject go, Vector3 startPos, Vector3 desPos, float timeToRotate)
+    {
+        float timeToRotateCounter = 0;
+
+        Vector3 direction = desPos - startPos;
+        float angle = Mathf.Atan2(desPos.x, direction.y);
+        while (gameObject)
+        {
+            go.transform.rotation = Quaternion.Lerp(go.transform.rotation, Quaternion.Euler(0f, 0f, angle * Mathf.Rad2Deg), timeToRotateCounter / timeToRotate);
+            timeToRotateCounter += Time.deltaTime;
+            yield return null;
+        }
+
     }
 
     void CreateProjectile(GameObject projectile,Vector3 position ,Vector3 direction, float projectileSpeed)

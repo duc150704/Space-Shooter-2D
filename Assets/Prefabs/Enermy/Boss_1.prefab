@@ -181,6 +181,7 @@ MonoBehaviour:
   listProjectiles:
   - {fileID: 4011484673774386789, guid: 76efff1929867fa4d8a6bd1294c2128b, type: 3}
   - {fileID: 2372049089264610151, guid: 34b55d9ad8ac4564bab33580680a10f4, type: 3}
+  - {fileID: 5907901587086192303, guid: 7338cbfdaf94ad54db3c884f6cbfccdb, type: 3}
 --- !u!60 &595325185728005613
 PolygonCollider2D:
   m_ObjectHideFlags: 0

@@ -4,14 +4,16 @@ using UnityEngine;
 
 public class EnermyHealth : Health
 {
-    Rigidbody2D rb;
-
     [SerializeField] GameObject ExplEffect;
     // Start is called before the first frame update
-    void Start()
+
+    private void Awake()
     {
         currentHealth = maxHealth;
-        rb = GetComponent<Rigidbody2D>();
+    }
+    void Start()
+    {
+
     }
 
     // Update is called once per frame
@@ -26,8 +28,9 @@ public class EnermyHealth : Health
         if (currentHealth <= 0)
         {
             AudioManager.Instance.PlayEnermyExplSound();
-            Instantiate(ExplEffect, gameObject.transform.position, Quaternion.identity);
+            GameObject go =  Instantiate(ExplEffect, gameObject.transform.position, Quaternion.identity);
             Destroy(gameObject);
+            Destroy(go,0.5f);
         }
     }
 }

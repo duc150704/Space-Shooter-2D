@@ -20,12 +20,10 @@ public class Movement : MonoBehaviour
         if(Vector3.Distance(transform.position, topVector.position) < 0.1f)
         {
             target = bottomVector;
-           // speedCounter = 0f;
         } 
         if (Vector3.Distance(transform.position, bottomVector.position) < 0.1f)
         {
             target = topVector;
-            //speedCounter = 0f;
         }
     }
 

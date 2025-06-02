@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class LevelManager : MonoBehaviour
+public class GameManager : MonoBehaviour
 {
     [SerializeField] List<Wave> waves = new List<Wave>();
     [SerializeField] float timeBetweenWaves = 1.0f;
@@ -27,6 +27,8 @@ public class LevelManager : MonoBehaviour
             WaveCompleted(waves[i]);
             yield return new WaitForSeconds(timeBetweenWaves);
         }
+
+        SceneController.Instance.LoadNextLevel();
     }
 
     public IEnumerator ShowingWavesName(Wave wave)

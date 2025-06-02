@@ -85,10 +85,18 @@ public class Path1_3 : Path
 
         if (randomNum == 1)
             yield return StartCoroutine(bs.Shoot1());
-        else if (randomNum == 2)
-            yield return StartCoroutine(bs.Shoot0());
         else
-            yield return StartCoroutine(bs.Shoot2());
+        {
+            int ran = Random.Range(1,3);
+            if( ran == 1)
+            {
+                    yield return StartCoroutine(bs.Shoot0());
+            }
+            else
+            {
+                yield return StartCoroutine(bs.Shoot2());
+            }
+        }
         currentState = BossState.moving;
     }
 
